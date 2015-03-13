@@ -7,7 +7,9 @@
     "test": "node tests/test.js"
   },
   "dependencies": {
+    "async": "^0.9.0",
     "body-parser": "^1.12.0",
+    "cheerio": "^0.18.0",
     "jd-book": "^0.5.2",
     "mongoose": "^3.8.24",
     "request": "^2.53.0"
