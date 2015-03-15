@@ -18,7 +18,8 @@ var savebookHandler = function (book, callback) {
     "price": book.price,      // wMaprice
     "author": book.author ,     // 图书作者
     "pub": book.publication ,        // 出版社
-    "pub_date": book.pub_date     // 出版时间
+    "pub_date": book.pub_date,     // 出版时间
+    "pre_id": book.id            // 原来数据中的id
   };
 
   var inventory_obj = new Inventory(inventory);
@@ -85,6 +86,6 @@ var finish = function(err) {
 var baseUrl = 'http://localhost:8000/book';
 var start = 0;
 var end = 100;
-mig_url = baseUrl + '/mig/?start=' + start + '&end=' + end ;
+mig_url = baseUrl + '/mig_books/?start=' + start + '&end=' + end ;
 
 handleBooks(mig_url, finish);

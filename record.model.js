@@ -1,6 +1,5 @@
 var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
-mongoose.connect('mongodb://localhost/hbg');
 
 var RecordSchema = new Schema({
   inventory: {
@@ -13,11 +12,12 @@ var RecordSchema = new Schema({
     ref: 'Member',
     required: true
   },
-  start_time: {
+  start_date: {
     type: Date,
     default: Date.now
   },
-  end_time: Date
+  status: String,    // R 借阅中， A 已经归还
+  return_date: Date
 }, {
   collection: 'record'
 });

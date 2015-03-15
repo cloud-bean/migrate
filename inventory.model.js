@@ -35,7 +35,8 @@ var InventorySchema = new Schema({
   price: Number,      // wMaprice
   author: String,     // 图书作者
   pub_by: String,     // 出版社
-  pub_date: Date      // 出版时间
+  pub_date: Date,     // 出版时间
+  pre_id: String      // 原来mysql中的id
 
 }, {
   collection: 'inventory'

@@ -2,6 +2,7 @@ var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 
 var MemberSchema = new Schema({
+  pre_id: String, // 原来系统中的数据纪录的id
   phone_number: {
     type: String,
     required: true
