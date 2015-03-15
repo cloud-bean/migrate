@@ -1,6 +1,5 @@
 var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
-mongoose.connect('mongodb://localhost/hbg');
 
 var InventorySchema = new Schema({
   location: {
@@ -8,13 +7,12 @@ var InventorySchema = new Schema({
     default: ''
   },
   inv_code: {         // 入库编码
-  default: ''
     type: String,
+    default: ''
   },
   in_time: {          // 入库时间
-  default: ''
     type: Date,
-    default: Data.now
+    default: Date.now
   },
   isRent: {
     type: Boolean,    // 是否借出
@@ -43,4 +41,4 @@ var InventorySchema = new Schema({
   collection: 'inventory'
 });
 
-var InventoryModel = mongoose.model('Inventory', inventorySchema);
+var InventoryModel = mongoose.model('Inventory', InventorySchema);
