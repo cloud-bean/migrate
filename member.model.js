@@ -1,9 +1,8 @@
 var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
-mongoose.connect('mongodb://localhost/hbg');
 
 var MemberSchema = new Schema({
-  phone_Number: {
+  phone_number: {
     type: String,
     required: true
   },
@@ -13,7 +12,7 @@ var MemberSchema = new Schema({
   },
   baby_birthday: Date,
   isBoy: Boolean,  // sexual
-  card_Number: {
+  card_number: {
     type: String,
     required: true,
     unique: true,
