@@ -21,20 +21,24 @@ var saveRecordHandler = function (record, callback) {
     }
   ],
   function(err, results) {
-    var new_record = {
-        "inventory": results[1],
-        "member": results[0],
-        "status": record.status,
-        "start_date": record.start_date,
-        "return_date": record.return_date };
-    var record_obj = new Record(new_record);
-    record_obj.save(function (err) {
-      if (err) {
-       return callback(err);
-      } else {
-         callback(null);
-      }
-    });
+    if (!err && results[0] && results[1]) {
+      var new_record = {
+          "inventory": results[1],
+          "member": results[0],
+          "status": record.status,
+          "start_date": record.start_date,
+          "return_date": record.return_date };
+      var record_obj = new Record(new_record);
+      record_obj.save(function (err) {
+        if (err) {
+         return callback(err);
+        } else {
+           callback(null);
+        }
+      });
+    } else { // if findOne no matches , there is no err. but return with null.
+      return callback("member or inventory not found!");
+    }
   });
 }
 

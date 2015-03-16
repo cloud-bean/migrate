@@ -4,7 +4,12 @@ require('./inventory.model.js');
 mongoose.connect('mongodb://localhost/hbg');
 var Inventory = mongoose.model('Inventory');
 
-var savebookHandler = function (book, callback) {
+var savebookHandler = function (book, next) {
+  // todo: save tags and tag-inventory link.
+  var tags = [];
+  for(var i=0; i<book.tags.length; i++) {
+      tags.push({"name":book.tags[i]});
+  }
   var inventory = {
     "location": "",
     "in_time": book.in_time,
@@ -19,16 +24,17 @@ var savebookHandler = function (book, callback) {
     "author": book.author ,     // 图书作者
     "pub": book.publication ,        // 出版社
     "pub_date": book.pub_date,     // 出版时间
-    "pre_id": book.id            // 原来数据中的id
+    "pre_id": book.id,            // 原来数据中的id
+    "tags": tags  // 直接存一个数组。
   };
 
   var inventory_obj = new Inventory(inventory);
   inventory_obj.save( function (err) {
     if (err) {
-      return callback(err);
+      return next(err);
     } else {
       console.log(inventory_obj._id);
-      callback(null);
+      next(null);
     }
   });
 }

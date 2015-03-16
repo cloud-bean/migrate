@@ -36,10 +36,19 @@ var InventorySchema = new Schema({
   author: String,     // 图书作者
   pub_by: String,     // 出版社
   pub_date: Date,     // 出版时间
-  pre_id: String      // 原来mysql中的id
-
+  pre_id: String,     // 原来mysql中的id
+  tags: [{
+        name: String
+  }]      // 标签
 }, {
   collection: 'inventory'
 });
 
 var InventoryModel = mongoose.model('Inventory', InventorySchema);
+
+// about tags: [String]
+// InventoryModel.find({tags: { $elemMatch: {name:  '小猫' } } }, function(err, data) {
+//   if (!err) {
+//     // do sth with data as the inventory instances which tags contain 'your tag name'
+//   }
+// })
