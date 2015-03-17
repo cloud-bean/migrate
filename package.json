@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "async": "^0.9.0",
+    "benchmark": "^1.0.0",
     "body-parser": "^1.12.0",
     "cheerio": "^0.18.0",
     "jd-book": "^0.5.2",
