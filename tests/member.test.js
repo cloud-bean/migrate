@@ -1,6 +1,6 @@
 var mig = require('../index');
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/hbg');
+mongoose.connect('mongodb://localhost/hbg-dev');
 
 var finish = function(err) {
   if (!err) {
