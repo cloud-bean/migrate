@@ -3,8 +3,7 @@
  */
 var async = require('async');
 var mongoose = require('mongoose');
-var util = require('get-book-inventory');
-// var util = require('./index.js');
+var util = require('./index.js');
 mongodb_conn_str = process.env.MGLIB_CONN_STRING || "mongodb://localhost/hbg-dev";
 mongoose.connect(mongodb_conn_str, function (err) {
     if (err) 
